@@ -8,7 +8,7 @@ public class BookTests
   // Fact is an attribute
   // a piece of data that is attached to the method that follows it (Test1)
   [Fact]
-  public void Test1()
+  public void BookCalcsAverageGrade()
   {
     // Arrange - put together all the data
     var book = new Book("");

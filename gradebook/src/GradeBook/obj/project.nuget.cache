@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G5M92nTkQS5nfiTCjieLnlUsTc1q06Jjo416lJ9qkTQlupUQR6Uk49rRTW+70OtcTB4g8hoFBAo6pMIb1cOsXw==",
+  "dgSpecHash": "C2Tu+DZ2nZgJyLKplBbTizoFKYrdu3O+Kupz29zs+pesqpIChxZm1Ly9nFxcYU2T1KX4XRQOtjujcJk+7CNlKw==",
   "success": true,
-  "projectFilePath": "/home/jhausle/Documents/personal/csharp_class/gradebook/src/GradeBook/GradeBook.csproj",
+  "projectFilePath": "/home/jhausle/repos/csharp/gradebook/src/GradeBook/GradeBook.csproj",
   "expectedPackageFiles": [
     "/home/jhausle/.nuget/packages/microsoft.netcore.app.host.linux-x64/3.1.29/microsoft.netcore.app.host.linux-x64.3.1.29.nupkg.sha512"
   ],

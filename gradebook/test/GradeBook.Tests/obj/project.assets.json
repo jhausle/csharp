@@ -5994,11 +5994,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/jhausle/Documents/personal/csharp_class/gradebook/test/GradeBook.Tests/GradeBook.Tests.csproj",
+      "projectUniqueName": "/home/jhausle/repos/csharp/gradebook/test/GradeBook.Tests/GradeBook.Tests.csproj",
       "projectName": "GradeBook.Tests",
-      "projectPath": "/home/jhausle/Documents/personal/csharp_class/gradebook/test/GradeBook.Tests/GradeBook.Tests.csproj",
+      "projectPath": "/home/jhausle/repos/csharp/gradebook/test/GradeBook.Tests/GradeBook.Tests.csproj",
       "packagesPath": "/home/jhausle/.nuget/packages/",
-      "outputPath": "/home/jhausle/Documents/personal/csharp_class/gradebook/test/GradeBook.Tests/obj/",
+      "outputPath": "/home/jhausle/repos/csharp/gradebook/test/GradeBook.Tests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/jhausle/.nuget/NuGet/NuGet.Config"
@@ -6013,8 +6013,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/home/jhausle/Documents/personal/csharp_class/gradebook/src/GradeBook/GradeBook.csproj": {
-              "projectPath": "/home/jhausle/Documents/personal/csharp_class/gradebook/src/GradeBook/GradeBook.csproj"
+            "/home/jhausle/repos/csharp/gradebook/src/GradeBook/GradeBook.csproj": {
+              "projectPath": "/home/jhausle/repos/csharp/gradebook/src/GradeBook/GradeBook.csproj"
             }
           }
         }

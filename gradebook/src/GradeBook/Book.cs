@@ -8,7 +8,7 @@ namespace GradeBook
     public Book(string name)
     {
       grades = new List<double>();
-      this.name = name;
+      this.Name = name;
     }
     public void AddGrade(double grade)
     {
@@ -34,6 +34,6 @@ namespace GradeBook
 
     // This is considered a field of a class
     private List<double> grades;
-    private string name;
+    public string Name; // public members should be captialized
   }
 }

@@ -12,3 +12,17 @@
 /home/jhausle/Documents/personal/csharp_class/gradebook/src/GradeBook/obj/Debug/netcoreapp3.1/GradeBook.dll
 /home/jhausle/Documents/personal/csharp_class/gradebook/src/GradeBook/obj/Debug/netcoreapp3.1/GradeBook.pdb
 /home/jhausle/Documents/personal/csharp_class/gradebook/src/GradeBook/obj/Debug/netcoreapp3.1/GradeBook.genruntimeconfig.cache
+/home/jhausle/repos/csharp/gradebook/src/GradeBook/bin/Debug/netcoreapp3.1/GradeBook
+/home/jhausle/repos/csharp/gradebook/src/GradeBook/bin/Debug/netcoreapp3.1/GradeBook.deps.json
+/home/jhausle/repos/csharp/gradebook/src/GradeBook/bin/Debug/netcoreapp3.1/GradeBook.runtimeconfig.json
+/home/jhausle/repos/csharp/gradebook/src/GradeBook/bin/Debug/netcoreapp3.1/GradeBook.runtimeconfig.dev.json
+/home/jhausle/repos/csharp/gradebook/src/GradeBook/bin/Debug/netcoreapp3.1/GradeBook.dll
+/home/jhausle/repos/csharp/gradebook/src/GradeBook/bin/Debug/netcoreapp3.1/GradeBook.pdb
+/home/jhausle/repos/csharp/gradebook/src/GradeBook/obj/Debug/netcoreapp3.1/GradeBook.csproj.AssemblyReference.cache
+/home/jhausle/repos/csharp/gradebook/src/GradeBook/obj/Debug/netcoreapp3.1/GradeBook.GeneratedMSBuildEditorConfig.editorconfig
+/home/jhausle/repos/csharp/gradebook/src/GradeBook/obj/Debug/netcoreapp3.1/GradeBook.AssemblyInfoInputs.cache
+/home/jhausle/repos/csharp/gradebook/src/GradeBook/obj/Debug/netcoreapp3.1/GradeBook.AssemblyInfo.cs
+/home/jhausle/repos/csharp/gradebook/src/GradeBook/obj/Debug/netcoreapp3.1/GradeBook.csproj.CoreCompileInputs.cache
+/home/jhausle/repos/csharp/gradebook/src/GradeBook/obj/Debug/netcoreapp3.1/GradeBook.dll
+/home/jhausle/repos/csharp/gradebook/src/GradeBook/obj/Debug/netcoreapp3.1/GradeBook.pdb
+/home/jhausle/repos/csharp/gradebook/src/GradeBook/obj/Debug/netcoreapp3.1/GradeBook.genruntimeconfig.cache

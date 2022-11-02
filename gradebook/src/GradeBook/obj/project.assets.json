@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/jhausle/Documents/personal/csharp_class/gradebook/src/GradeBook/GradeBook.csproj",
+      "projectUniqueName": "/home/jhausle/repos/csharp/gradebook/src/GradeBook/GradeBook.csproj",
       "projectName": "GradeBook",
-      "projectPath": "/home/jhausle/Documents/personal/csharp_class/gradebook/src/GradeBook/GradeBook.csproj",
+      "projectPath": "/home/jhausle/repos/csharp/gradebook/src/GradeBook/GradeBook.csproj",
       "packagesPath": "/home/jhausle/.nuget/packages/",
-      "outputPath": "/home/jhausle/Documents/personal/csharp_class/gradebook/src/GradeBook/obj/",
+      "outputPath": "/home/jhausle/repos/csharp/gradebook/src/GradeBook/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/jhausle/.nuget/NuGet/NuGet.Config"
