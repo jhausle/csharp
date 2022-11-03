@@ -8,9 +8,9 @@ namespace GradeBook
     public Book(string name)
     {
       grades = new List<double>();
-      this.Name = name;
+      this.name = name;
     }
-    public void AddLetterGrade(char letter)
+    public void AddGrade(char letter)
     {
       switch (letter)
       {
@@ -81,6 +81,18 @@ namespace GradeBook
 
     // This is considered a field of a class
     private List<double> grades;
-    public string Name; // public members should be captialized
+    public string Name // This is a property
+    {
+      get
+      {
+        return this.name;
+      }
+      set
+      {
+        if (!String.IsNullOrEmpty(value))
+          name = value; // setter for a property will always have an implicit variable named value
+      }
+    }
+    private string name; // public members should be captialized
   }
 }
