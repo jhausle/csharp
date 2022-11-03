@@ -81,18 +81,10 @@ namespace GradeBook
 
     // This is considered a field of a class
     private List<double> grades;
-    public string Name // This is a property
+    public string Name // This is an auto property
     {
-      get
-      {
-        return this.name;
-      }
-      set
-      {
-        if (!String.IsNullOrEmpty(value))
-          name = value; // setter for a property will always have an implicit variable named value
-      }
+      get;
+      private set; // Makes this a public get but a private set. effectively read only
     }
-    private string name; // public members should be captialized
   }
 }
