@@ -8,7 +8,7 @@ namespace GradeBook
     public Book(string name)
     {
       grades = new List<double>();
-      this.name = name;
+      this.Name = name;
     }
     public void AddGrade(char letter)
     {
@@ -84,7 +84,11 @@ namespace GradeBook
     public string Name // This is an auto property
     {
       get;
-      private set; // Makes this a public get but a private set. effectively read only
+      set; // Makes this a public get but a private set. effectively read only
     }
+
+    //readonly string category = "Science"; // Can only initialize or modify in constructor
+    public const string NEWCAT = "cat"; // Cannot be updated from constructor. Const values often all uppercase
+    // This must be accessed by Book.NEWCAT now through an instantied variable/object book.NEWCAT
   }
 }

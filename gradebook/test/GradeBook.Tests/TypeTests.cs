@@ -12,8 +12,27 @@ public struct Point
   int y;
 }
 
+public delegate string WriteLogDelegate(string logMessage); // I think this is like a function pointer?
+
 public class TypeTests
 {
+  [Fact]
+  public void WriteLogDelegateCanPointToMethod()
+  {
+    WriteLogDelegate log;
+
+    // This is the long hand
+    // log = new WriteLogDelegate(ReturnMessage);
+    log = ReturnMessage;
+
+    var result = log("Hello!");
+    Assert.Equal("Hello!", result);
+
+  }
+  string ReturnMessage(string message)
+  {
+    return message;
+  }
   [Fact]
   public void StringsBehaveLikeValueTypes()
   {
