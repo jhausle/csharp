@@ -10,9 +10,34 @@ namespace GradeBook
       grades = new List<double>();
       this.Name = name;
     }
+    public void AddLetterGrade(char letter)
+    {
+      switch (letter)
+      {
+        case 'A':
+          AddGrade(90);
+          break;
+        case 'B':
+          AddGrade(80);
+          break;
+        case 'C':
+          AddGrade(70);
+          break;
+        case 'D':
+          AddGrade(60);
+          break;
+        case 'F':
+          AddGrade(50);
+          break;
+        default: AddGrade(0); break;
+      }
+    }
     public void AddGrade(double grade)
     {
-      grades.Add(grade);
+      if (grade <= 100 && grade >= 0.0)
+        grades.Add(grade);
+      else
+        Console.WriteLine("Invalid Value");
     }
 
     public MyStats GetStatistics()
@@ -22,13 +47,33 @@ namespace GradeBook
       var sum = 0.0;
       result.High = double.MinValue;
       result.Low = double.MaxValue;
+
       foreach (var number in grades)
       {
+        if (number == 42.1)
+        {
+          break;
+        }
         result.High = Math.Max(result.High, number);
         result.Low = Math.Min(result.Low, number);
         sum += number;
       }
       result.Average = sum / grades.Count;
+
+      switch (result.Average)
+      {
+        case var d when d >= 90.0:
+          result.Letter = 'A'; break;
+        case var d when d >= 80.0:
+          result.Letter = 'B'; break;
+        case var d when d >= 70.0:
+          result.Letter = 'C'; break;
+        case var d when d >= 60.0:
+          result.Letter = 'D'; break;
+        default:
+          result.Letter = 'F'; break;
+      }
+
       return result;
     }
 

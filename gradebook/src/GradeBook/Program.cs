@@ -17,10 +17,13 @@ namespace GradeBook
       book.AddGrade(89.1);
       book.AddGrade(90.5);
       book.AddGrade(77.5);
+
       var result = book.GetStatistics();
+
       Console.WriteLine($"Average of grades: {result.Average}");
       Console.WriteLine($"Max of grades: {result.High}");
       Console.WriteLine($"Min of grades: {result.Low}");
+      Console.WriteLine($"Letter grade is: {result.Letter}");
 
     }
   }
