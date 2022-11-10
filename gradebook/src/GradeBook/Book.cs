@@ -3,6 +3,10 @@ using System;
 
 namespace GradeBook
 {
+  // most delegates in C# have the following parameters
+  public delegate void GradeAddedDelegate(object sender, EventArgs args);
+
+
   public class Book
   {
     public Book(string name)
@@ -35,12 +39,22 @@ namespace GradeBook
     public void AddGrade(double grade)
     {
       if (grade <= 100 && grade >= 0.0)
+      {
         grades.Add(grade);
+        if (GradeAdded != null)
+        {
+          GradeAdded(this, new EventArgs());
+        }
+      }
       else
       {
         throw new ArgumentException($"Invalid {nameof(grade)}");
       }
     }
+
+    //public GradeAddedDelegate GradeAdded;
+    // Every book object as a gradeadded event
+    public event GradeAddedDelegate GradeAdded;
 
     public MyStats GetStatistics()
     {

@@ -14,18 +14,8 @@ namespace GradeBook
     static void Main(string[] args)
     {
       var book = new Book("John's Grade Book");
-      /*book.AddGrade(89.1);
-      book.AddGrade(90.5);
-      book.AddGrade(77.5);*/
-      // input
-      /*Console.WriteLine("Input grades: ");
-      var input = Console.ReadLine();
-      while (String.IsNullOrWhiteSpace(input) == false)
-      {
-        var grade = double.Parse(input);
-        book.AddGrade(grade);
-        input = Console.ReadLine();
-      }*/
+      //book.GradeAdded += OnGradeAdded; because its an EVENT, this is not possible. This is generally bad anyway b/c things can overwrite each other
+      book.GradeAdded += OnGradeAdded;
       var done = false;
       while (!done)
       {
@@ -63,6 +53,11 @@ namespace GradeBook
       Console.WriteLine($"Max of grades: {result.High}");
       Console.WriteLine($"Min of grades: {result.Low}");
       Console.WriteLine($"Letter grade is: {result.Letter}");
+
+    }
+    static void OnGradeAdded(object sender, EventArgs e)
+    {
+      Console.WriteLine("Grade was Added!");
 
     }
   }

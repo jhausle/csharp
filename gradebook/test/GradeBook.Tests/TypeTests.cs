@@ -13,6 +13,7 @@ public struct Point
 }
 
 public delegate string WriteLogDelegate(string logMessage); // I think this is like a function pointer?
+// multi-case delegates could be useful for having multiple callbacks to a single event
 
 public class TypeTests
 {
