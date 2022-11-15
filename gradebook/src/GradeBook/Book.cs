@@ -1,18 +1,99 @@
 using System.Collections.Generic;
 using System;
+using System.IO;
 
 namespace GradeBook
 {
   // most delegates in C# have the following parameters
   public delegate void GradeAddedDelegate(object sender, EventArgs args);
 
-
-  public class Book
+  // All classes automatically derive from the base Object
+  // object == system.Object
+  public class NamedObject
   {
-    public Book(string name)
+    public NamedObject(string name)
+    {
+      Name = name;
+    }
+    public string Name
+    {
+      get;
+      set;
+    }
+  }
+
+  // Interface should start with I
+  // interfaces are much more common than abstract classes
+  public interface IBook
+  {
+    void AddGrade(double grade);
+    MyStats GetStatistics();
+    string Name { get; }
+    event GradeAddedDelegate GradeAdded;
+  }
+
+  public abstract class Book : NamedObject, IBook
+  {
+    public Book(string name) : base(name) { }
+    public abstract event GradeAddedDelegate GradeAdded;
+    public abstract void AddGrade(double grade);
+    public abstract MyStats GetStatistics();
+  }
+
+  public class DiskBook : Book
+  {
+    public DiskBook(string name) : base(name)
+    {
+      // grades = some location?
+    }
+    public override event GradeAddedDelegate GradeAdded;
+    public override MyStats GetStatistics()
+    {
+      var results = new MyStats();
+      string line;
+      using (var sw = File.OpenText($"{Name}.txt"))
+      {
+        line = sw.ReadLine();
+        while (line != null)
+        {
+          results.updateGrade(double.Parse(line));
+          line = sw.ReadLine();
+        }
+
+      }
+
+      return results;
+    }
+
+    public override void AddGrade(double grade)
+    {
+      //string file = this.Name + ".txt";
+      //StreamWriter sw = File.AppendText(file);
+      using (StreamWriter sw = File.AppendText($"{Name}.txt"))
+      {
+        sw.WriteLine(grade);
+        if (GradeAdded != null)
+        {
+          GradeAdded(this, new EventArgs());
+        }
+      }
+      //sw.Dispose();
+    }
+
+  }
+
+  // Book is a namedObject
+  // Book inherists from the base class namedObject
+  // Can only inherit from one
+  // But can implement multiple interfaces
+  public class InMemoryBook : Book
+  {
+    // below accesses the constructor of the base class. so calls constructor of namedObject
+    // this is called chaining constructors
+    public InMemoryBook(string name) : base(name)
     {
       grades = new List<double>();
-      this.Name = name;
+      Name = name;
     }
     public void AddGrade(char letter)
     {
@@ -36,7 +117,9 @@ namespace GradeBook
         default: AddGrade(0); break;
       }
     }
-    public void AddGrade(double grade)
+
+    // Can only override abstract/virtual methods
+    public override void AddGrade(double grade)
     {
       if (grade <= 100 && grade >= 0.0)
       {
@@ -52,57 +135,31 @@ namespace GradeBook
       }
     }
 
-    //public GradeAddedDelegate GradeAdded;
-    // Every book object as a gradeadded event
-    public event GradeAddedDelegate GradeAdded;
+    // public GradeAddedDelegate GradeAdded;
+    // Every book object has a gradeadded event
+    public override event GradeAddedDelegate GradeAdded;
 
-    public MyStats GetStatistics()
+    public override MyStats GetStatistics()
     {
+      var results = new MyStats();
       // var keyword uses implicit typing where the compiler figures out the appropriate type
-      var result = new MyStats();
-      var sum = 0.0;
-      result.High = double.MinValue;
-      result.Low = double.MaxValue;
-
       foreach (var number in grades)
       {
-        if (number == 42.1)
-        {
-          break;
-        }
-        result.High = Math.Max(result.High, number);
-        result.Low = Math.Min(result.Low, number);
-        sum += number;
+        results.updateGrade(number);
       }
-      result.Average = sum / grades.Count;
-
-      switch (result.Average)
-      {
-        case var d when d >= 90.0:
-          result.Letter = 'A'; break;
-        case var d when d >= 80.0:
-          result.Letter = 'B'; break;
-        case var d when d >= 70.0:
-          result.Letter = 'C'; break;
-        case var d when d >= 60.0:
-          result.Letter = 'D'; break;
-        default:
-          result.Letter = 'F'; break;
-      }
-
-      return result;
+      return results;
     }
 
     // This is considered a field of a class
     private List<double> grades;
-    public string Name // This is an auto property
+    /*public string Name // This is an auto property
     {
       get;
       set; // Makes this a public get but a private set. effectively read only
-    }
+    }*/
 
     //readonly string category = "Science"; // Can only initialize or modify in constructor
     public const string NEWCAT = "cat"; // Cannot be updated from constructor. Const values often all uppercase
-    // This must be accessed by Book.NEWCAT now through an instantied variable/object book.NEWCAT
+                                        // This must be accessed by Book.NEWCAT now through an instantied variable/object book.NEWCAT
   }
 }

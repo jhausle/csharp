@@ -105,7 +105,7 @@ public class TypeTests
     Assert.Equal("New Name", book1.Name);
   }
 
-  private void SetName(Book book, string name)
+  private void SetName(InMemoryBook book, string name)
   {
     book.Name = name;
   }
@@ -119,14 +119,14 @@ public class TypeTests
     Assert.Equal("Book 1", book1.Name);
   }
 
-  private void GetBookSetName(Book book, string name)
+  private void GetBookSetName(InMemoryBook book, string name)
   {
-    book = new Book(name);
+    book = new InMemoryBook(name);
   }
 
-  Book GetBook(string name)
+  InMemoryBook GetBook(string name)
   {
-    return new Book(name); // new creates the object but returns a reference to the address of that object
+    return new InMemoryBook(name); // new creates the object but returns a reference to the address of that object
   }
 
 
@@ -142,8 +142,8 @@ public class TypeTests
 
   // out and ref can be almost the same
   // out is slightly safer sometimes as c# assumes out params are uninitialized and the compiler forces it to be assigned within the method
-  private void GetBookSetName(ref Book book, string name)
+  private void GetBookSetName(ref InMemoryBook book, string name)
   {
-    book = new Book(name);
+    book = new InMemoryBook(name);
   }
 }

@@ -13,10 +13,25 @@ namespace GradeBook
   {
     static void Main(string[] args)
     {
-      var book = new Book("John's Grade Book");
+      // Although it is specifically an InMemoryBook, the "book" variable is still a Book type
+      IBook book = new DiskBook("John's Grade Book");
       //book.GradeAdded += OnGradeAdded; because its an EVENT, this is not possible. This is generally bad anyway b/c things can overwrite each other
       book.GradeAdded += OnGradeAdded;
       var done = false;
+      done = EnterGrades(book, done);
+
+      var result = book.GetStatistics();
+
+      Console.WriteLine($"For the book name: {book.Name}");
+      Console.WriteLine($"Average of grades: {result.Average}");
+      Console.WriteLine($"Max of grades: {result.High}");
+      Console.WriteLine($"Min of grades: {result.Low}");
+      Console.WriteLine($"Letter grade is: {result.Letter}");
+
+    }
+
+    private static bool EnterGrades(IBook book, bool done)
+    {
       while (!done)
       {
         Console.WriteLine("Enter a Grade or 'q' to quit:");
@@ -46,15 +61,9 @@ namespace GradeBook
         }
       }
 
-      var result = book.GetStatistics();
-
-      Console.WriteLine($"For the book name: {book.Name}");
-      Console.WriteLine($"Average of grades: {result.Average}");
-      Console.WriteLine($"Max of grades: {result.High}");
-      Console.WriteLine($"Min of grades: {result.Low}");
-      Console.WriteLine($"Letter grade is: {result.Letter}");
-
+      return done;
     }
+
     static void OnGradeAdded(object sender, EventArgs e)
     {
       Console.WriteLine("Grade was Added!");
